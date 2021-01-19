@@ -167,7 +167,13 @@
                     <button class="btn btn-danger btn-sm" id="carousel-play">
                 	    <span class="fa fa-play"></span>
                     </button>
+
+                    <button class="btn btn-danger btn-sm" id="carouselButtonPausePlay">
+                        <span id="carousel-button-icon" class="fa fa-pause"></span>
+                    </button>
                 </div>
+
+                
  
              </div>
         </div>
@@ -366,6 +372,19 @@
             });
             $("#carousel-play").click(function(){
                 $("#mycarousel").carousel('cycle');
+            });
+
+            $("#carouselButtonPausePlay").click(function(){
+                if ($("#carouselButtonPausePlay").children("span").hasClass('fa-pause')) {
+                    $("#mycarousel").carousel('pause');
+                    $("#carouselButtonPausePlay").children("span").removeClass('fa-pause');
+                    $("#carouselButtonPausePlay").children("span").addClass('fa-play');
+                }
+                else if ($("#carouselButtonPausePlay").children("span").hasClass('fa-play')){
+                    $("#mycarousel").carousel('cycle');
+                    $("#carouselButtonPausePlay").children("span").removeClass('fa-play');
+                    $("#carouselButtonPausePlay").children("span").addClass('fa-pause');                    
+                }
             });
         });
     </script>
